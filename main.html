@@ -1,0 +1,127 @@
+<HTML>
+   <title> 세작커</title>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+    *{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 400;
+    }
+    
+    
+    
+    #wrap {
+        position: relative;
+        width: 100%; height: 100%;
+        background-color: antiquewhite;
+    }
+    
+    .center {
+        position: absolute;left: 50%;top: 50%;
+        transform: translate(-50%,-50%)
+    }
+    
+    #input, #printArea {
+        height: 91mm; width : 64mm;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px gray;
+    }
+    
+    #printArea { display: none; }
+    #end:checked ~ #input { display: block; } 
+    
+    .print {
+        position: relative;
+        display: block;
+        height: 10mm; 
+        margin-left: 10mm;
+    }
+
+</style>
+    
+<div id="wrap">
+
+<div id="input" class="center" >
+    <form action="" style="margin-left: 10%; margin-top: 10mm;">
+        <select name="sub" size="1" id="top_text" onchange="handleOnChange(this)" style="height: 10mm;">
+            <option value=""> 세상에서 가장 작은 <br> 커피 회사</option>
+            <option value=""> 전생에 <br> 원두콩이었던 자</option>
+            <option value=""> 아아없이 못살아</option>
+            <option value=""> 얼어죽어도 <br> 아이스아메리카노</option>
+            <option value=""> 역시 카누가 최고야 </option>
+        </select>
+        <input type="text" id="name" placeholder="공유" onchange="Printname();"
+        style="width: 25mm; height: 10mm; margin-top: 10mm;">
+        <select name="rank" size="1" id="" onchange="handleOnChange2(this)" style="height: 10mm;">
+            <option value=""> ceo </option>
+            <option value=""> 대표 </option>
+            <option value=""> 과장 </option>
+            <option value=""> 차장 </option>
+            <option value=""> 대리 </option>
+            <option value=""> 인턴 </option>
+        </select>
+        <p style="margin-top: 20mm;"> Add, 카누시 바리구 스타동 <br/> Contact 02-2011-1020</p>
+        
+        <input type="submit" value="작성완료" onclick="Print();">
+    </form>
+</div>
+
+<div id="printArea" class="center" style="align=center;">
+    <div id="print_top" class="print" style="margin-top: 15mm; width: 70%; "></div>
+    <div style="float: left; margin-left: 10mm; font-size: 25px; font-weight: 800; margin-top: 10mm; ">
+        <div id="print_name" class="print_sub" style="width: 25mm; "></div>
+        <div id="print_rank" class="print_sub" style="margin-left: 25mm; width: 20mm"></div>
+    </div>
+    <div class="print" style="font-size: 15px; margin-top: 20mm; width: 70%; ">
+        <p> Add, 카누시 바리구 스타동 <br/> Contact 02-2011-1020</p>
+    </div>
+</div>
+
+</div>
+
+
+<div style="position: relative; margin-top: -300px; margin-left: 100px;">
+    <a href="#" onclick="printArea()"><img src="./printer.png" alt="" style="height: 50px; width: 50px;"></a>
+</div>
+  
+
+
+<script type="text/javascript">
+    
+    function Print() {
+        document.getElementById('printArea').style.display = 'block'
+        document.getElementById('input').style.display = 'none'
+    }
+
+
+    
+   function handleOnChange(e) {
+      const text = e.options[e.selectedIndex].text;
+      console.log(e.options);
+
+      document.getElementById('print_top').innerText
+        = text;
+    }
+    
+    
+    function Printname()  {
+      const name = document.getElementById('name').value;
+      document.getElementById("print_name").innerText = name;
+    }
+    
+    function handleOnChange2(e) {
+      const text = e.options[e.selectedIndex].text;
+      console.log(e.options);
+
+      document.getElementById('print_rank').innerText
+        = text;
+    }
+    
+    
+    
+    
+    
+</script>
+ 
+
+</HTML>
