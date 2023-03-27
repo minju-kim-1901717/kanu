@@ -1,6 +1,7 @@
-<HTML>
+<html>
    <title> 세작커</title>
 <style>
+    
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
     *{
@@ -62,7 +63,7 @@
         </select>
         <p style="margin-top: 20mm;"> Add, 카누시 바리구 스타동 <br/> Contact 02-2011-1020</p>
         
-        <input type="submit" value="작성완료" onclick="Print();">
+        <input type="submit" value="작성완료" onclick="Print_e();">
     </form>
 </div>
 
@@ -81,17 +82,19 @@
 
 
 <div style="position: relative; margin-top: -300px; margin-left: 100px;">
-    <a href="#" onclick="printArea()"><img src="./printer.png" alt="" style="height: 50px; width: 50px;"></a>
+    <a href="#" onclick="print"><img src="./printer.png" alt="" style="height: 50px; width: 50px;"></a>
 </div>
   
 
 
-<script type="text/javascript">
+<script>
     
-    function Print() {
-        document.getElementById('printArea').style.display = 'block'
+    
+    function Print_e() {
+        document.getElementById('printArea').style.display = 'block';
         document.getElementById('input').style.display = 'none'
     }
+    
 
 
     
@@ -124,4 +127,4 @@
 </script>
  
 
-</HTML>
+</html>
